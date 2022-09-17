@@ -26,6 +26,22 @@ public class Empresa {
     private int telefono;
     private long nit;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuarioentrenador;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "movimiento_id")
+    private Movimiento movimiento;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "empleado_id")
+    private Empleado empleado;
+
 
 //@Enumerated(EnumType.STRING)
     //@Column(Name ="tipo")
