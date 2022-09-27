@@ -6,19 +6,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.ArrayList;
 @Service
 public class UsuarioService {
 
-        @Autowired
-        UsuarioRepository usuarioRepository;
-        public void CrearyActualizarUsuario(Usuario usuario){usuarioRepository.save(usuario);
-        }
-        public List<Usuario>verUsuario(){
-            return new ArrayList<>(usuarioRepository.findAll());
-        }
+    @Autowired
+    UsuarioRepository usuarioRepository;
 
-        public void eliminarUsuario(Long id){
-            usuarioRepository.deleteById(id);
-        }
+    public void crearYActualizarUsuario(Usuario usuario){
+        usuarioRepository.save(usuario);
+    }
+
+    public List<Usuario> verUsuario(){
+        return usuarioRepository.findAll();
+    }
+
+    public Usuario verUsuarioPorId(Long id) {
+        return usuarioRepository.findById(id).get();
+    }
+
+    public void eliminarUsuario(Long id){
+        usuarioRepository.deleteById(id);
+    }
+
 }

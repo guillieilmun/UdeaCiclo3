@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../static/css/styles.css">
+  <title>Document</title>
+</head>
+<body>
+<h1>Interfaz de movimiento</h1>
+<h2>Bienvenidos a la interfaz de Movimiento</h2>
+<p>Puedes agregar, enlistar, editar y borrar registros de Movimiento</p>
+<nav>
+  <ul>
+    <li><a href="/index">Inicio</a></li>
+    <li><a href="/empresa">Empresa</a></li>
+    <li><a href="/usuario">movimiento</a></li>
+  </ul>
+</nav>
+<main>
+  <table>
+    <tr>
+      <th>monto</th>
+      <th>concepto</th>
+      <th>usuario</th>
+
+
+    </tr>
+    <tr th:each="movimiento : ${movimiento}">
+      <td th:text="${movimiento.monto}"></td>
+      <td th:text="${movimiento.concepto}"></td>
+      <td th:text="${movimiento.usuario}"></td>
+      <td><a th:href="@{/movimiento/editar/{id} (id = ${movimiento.id})}">✍</a></td>
+      <td><a th:href="@{/movimiento/borrar/{id} (id = ${movimiento.id})}">❌</a></td>
+    </tr>
+  </table>
+  <a href="/agregar-empresa">Agregar un nuevo Movimiento</a>
+</main>
+<footer>
+  <p>Creado por guillermobecerra92@yahoo.es</p>
+  <p>Equipo AdaLovalaice</p>
+  <p>Proyecto MisionTIC 2022</p>
+</footer>
+</body>
+</html>
